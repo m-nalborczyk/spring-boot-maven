@@ -1,7 +1,11 @@
 package spring.course.services;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import spring.course.data.UserEntity;
+import spring.course.data.UserRepository;
+import spring.course.mapper.EntityMapper;
 import spring.course.model.UserModel;
 
 import java.util.HashMap;
@@ -12,24 +16,26 @@ import java.util.Map;
 public class UserServiceImplementation implements UserService{
 
     private final TimeService timeService;
-    private final Map<String, UserModel> userMap = new HashMap<>();
+    private final UserRepository userRepository;
+    private final EntityMapper<UserEntity, UserModel> enityMapper;
 
-    public UserServiceImplementation(TimeService timeService) {
+    public UserServiceImplementation(TimeService timeService, UserRepository userRepository, EntityMapper<UserEntity, UserModel> enityMapper) {
         this.timeService = timeService;
-        userMap.put("John", new UserModel("John", "Doe", 1234));
-        userMap.put("Jane", new UserModel("Jane", "Doe", 5432));
+        this.userRepository = userRepository;
+        this.enityMapper = enityMapper;
     }
 
     public UserModel getUser(String userName){
-        return userMap.get(userName);
+        return enityMapper.map(userRepository.findByFirstName(userName));
     }
 
     public void addUser(UserModel user){
         user.setCreationTime(timeService.getCurrentTime("Warsaw"));
-        userMap.put(user.getFirstName(), user);
+        userRepository.save(enityMapper.reverseMap(user));
     }
+    @Transactional
     public void deleteUser(String userName){
-        userMap.remove(userName);
+        userRepository.deleteByFirstName(userName);
     }
 
 

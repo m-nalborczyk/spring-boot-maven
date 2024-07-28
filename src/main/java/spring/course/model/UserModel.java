@@ -6,6 +6,8 @@ public class UserModel {
     private String lastName;
     private Integer membershipId;
 
+    private String creationTime;
+
 
     public UserModel() {
     }
@@ -38,5 +40,13 @@ public class UserModel {
 
     public void setMembershipId(Integer membershipId) {
         this.membershipId = membershipId;
+    }
+
+    public String getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(String creationTime) {
+        this.creationTime = creationTime;
     }
 }

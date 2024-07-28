@@ -1,0 +1,16 @@
+#SPRING BOOT CONFIGURATION IS ONLY SUPPORTED BY INTELLIJ ULTIMATE
+#IF WE DID HAVE IT WE COULD USE THIS FILE FOR CONFIG
+
+#api:
+#  endpoint: "http://worldtimeapi.org/api/timezone/"
+#  continent: "Europe"
+
+#THIS CHANGES THE PORT FROM 8080 TO DIFFERENT ONE
+#server:
+#  port: 9019
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: test

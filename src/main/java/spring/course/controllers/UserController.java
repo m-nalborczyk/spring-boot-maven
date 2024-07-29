@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import spring.course.model.UserModel;
 import spring.course.services.UserService;
-import spring.course.services.UserServiceImplementation;
 
 import java.util.Optional;
 

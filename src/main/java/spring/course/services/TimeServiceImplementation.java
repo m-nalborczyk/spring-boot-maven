@@ -14,16 +14,12 @@ public class TimeServiceImplementation implements TimeService{
         this.timeApiConfig = timeApiConfig;
     }
 
-//    #SPRING BOOT CONFIGURATION IS ONLY SUPPORTED BY INTELLIJ ULTIMATE
-//    #IF WE DID HAVE IT WE COULD USE THIS FILE FOR CONFIG
     @Override
     public String getCurrentTime(String timeZone) {
-//        TimeApiResponse response = Unirest.get(
-//                timeApiConfig.getEndpoint() + timeApiConfig.getEndpoint() + "/" + timeZone)
-//                .asObject(TimeApiResponse.class).getBody();
         TimeApiResponse response = Unirest.get(
-                "http://worldtimeapi.org/api/timezone/Europe/" + timeZone)
+                timeApiConfig.getEndpoint() + timeApiConfig.getContinent() + "/" + timeZone)
                 .asObject(TimeApiResponse.class).getBody();
+
         return response.getUtc_datetime();
     }
 }

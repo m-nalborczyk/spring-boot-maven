@@ -4,9 +4,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 
-//#SPRING BOOT CONFIGURATION IS ONLY SUPPORTED BY INTELLIJ ULTIMATE
-//#IF WE DID HAVE IT WE COULD USE THIS FILE FOR CONFIG
-
 @Configuration
 @ConfigurationProperties(prefix = "api")
 public class TimeApiConfig {

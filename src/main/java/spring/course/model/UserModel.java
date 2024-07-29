@@ -8,14 +8,20 @@ public class UserModel {
 
     private String creationTime;
 
-
     public UserModel() {
+
+    }
+    public UserModel(String firstName, String lastName, Integer membershipId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.membershipId = membershipId;
     }
 
     public UserModel(String firstName, String lastName, Integer membershipId, String creationTime) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.membershipId = membershipId;
+        this.creationTime = creationTime;
     }
 
     public String getFirstName() {

@@ -1,6 +1,5 @@
 package spring.course.mapper;
 
-import org.apache.catalina.User;
 import org.springframework.stereotype.Component;
 import spring.course.data.UserEntity;
 import spring.course.model.UserModel;
@@ -9,7 +8,6 @@ import spring.course.model.UserModel;
 public class UserEntityMapper implements EntityMapper<UserEntity, UserModel> {
     @Override
     public UserModel map(UserEntity entity) {
-
         return new UserModel(
                 entity.getFirstName(),
                 entity.getLastName(),
